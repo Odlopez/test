@@ -81,14 +81,6 @@ var onThirdCircleAnimationstart = function () {
   thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
 };
 
-var onDocumentLoaded = function () {
-  if (video.paused) {
-    video.play();
-  }
-
-  document.removeEventListener('DOMContentLoaded', onDocumentLoaded);
-}
-
 pageButton.addEventListener('click', onPageButtonClick);
 thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
 button.addEventListener('click', onButtonClick);
