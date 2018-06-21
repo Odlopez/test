@@ -86,4 +86,3 @@ thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
 button.addEventListener('click', onButtonClick);
 video.addEventListener('play', onVideoPlay);
 logo.addEventListener('click', onLogoClick);
-document.addEventListener('DOMContentLoaded', onDocumentLoaded);
