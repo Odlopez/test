@@ -1,0 +1,19 @@
+.shadow {
+  position: absolute;
+  left: 0;
+  z-index: 1000;
+
+  width: 50%;
+  height: 570px;
+
+  background-color: rgb(40, 53, 147);
+  transform-origin: 100% 0;
+
+  animation: shadow-develops 1s both cubic-bezier(0.74, 0.19, 0.83, 0.55);
+}
+
+@keyframes shadow-develops {
+  to {
+    transform: scaleX(0);
+  }
+}

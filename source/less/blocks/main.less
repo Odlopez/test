@@ -1,0 +1,92 @@
+.main__title {
+  width: 470px;
+  margin-bottom: 77px;
+  margin-left: 190px;
+
+  font-weight: 600;
+  font-size: 105px;
+  line-height: 115px;
+  font-family: @font;
+  color: rgb(255, 255, 255);
+}
+
+.main__button {
+  margin-left: 190px;
+
+  transform: scale(0);
+
+  animation: surfacing 0.7s 0.3s both ease-out;
+}
+
+.main__first-circle {
+  position: absolute;
+  top: -190px;
+  left: 297px;
+  z-index: -2;
+
+  width: 1353px;
+  height: 1353px;
+
+  background-color: rgba(19, 26, 87, 0.43);
+  border-radius: 50%;
+  transform: scale(0);
+
+  animation: surfacing 0.7s 1.4s both cubic-bezier(0.34, 0.67, 0.87, 0.93);
+}
+
+.main__second-circle {
+  position: absolute;
+  top: 21px;
+  right: 509px;
+  z-index: -1;
+
+  width: 930px;
+  height: 930px;
+  overflow: hidden;
+
+  background-image: linear-gradient(to right, rgb(19, 26, 87), rgb(19, 26, 87));
+  border-radius: 50%;
+  transform: scale(0);
+
+  animation: surfacing 0.7s 1.2s both ease-out;
+}
+
+.main__third-circle {
+  position: absolute;
+  top: 50.7%;
+  left: 0;
+
+  width: 0;
+  height: 0;
+
+  border-radius: 50%;
+  transform: translate(-2000px, -50%);
+}
+
+.main__svg {
+  position: absolute;
+  top: 106px;
+  left: 708px;
+
+  transform: scale(0);
+
+  animation: surfacing 0.7s 1.5s both cubic-bezier(0.34, 0.67, 0.87, 0.93);
+}
+
+.main__slider {
+  position: absolute;
+  bottom: 110px;
+  left: 48.7%;
+}
+
+@keyframes surfacing-button {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes surfacing {
+  to {
+    transform: scale(1);
+  }
+}

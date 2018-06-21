@@ -1,0 +1,34 @@
+.slider {
+  .reset-list();
+
+  display: flex;
+}
+
+.slider__item {
+  display: flex;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 39px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.slider__link {
+  display: block;
+  width: 12px;
+  height: 12px;
+
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 50%;
+
+  &--active {
+    width: 24px;
+    height: 24px;
+
+    background-color: rgb(107, 125, 255);
+    border: none;
+  }
+}
