@@ -2,7 +2,6 @@
 
 var container = document.querySelector('.container');
 var video = document.querySelector('.video');
-var audio = document.querySelector('.audio');
 var button = document.querySelector('.main__button');
 var mainTitle = document.querySelector('.main__title');
 var svg = document.querySelector('.main__svg');
@@ -16,9 +15,8 @@ var pageTwoText = document.querySelector('.page-two__text');
 var pageButton = document.querySelector('.page-two__button');
 var shadow = document.querySelector('.shadow');
 
-var rewindsMedia = function (sec) {
+var rewindsVideo = function (sec) {
   video.currentTime = sec;
-  audio.currentTime= sec;
 }
 
 var onPageButtonClick = function () {
@@ -62,18 +60,16 @@ var onButtonClick = function () {
 }
 
 var onThirdCircleAnimationstart = function () {
-  rewindsMedia(28);
+  rewindsVideo(28);
 };
 
 var onDocumentLoaded = function () {
-  rewindsMedia(5);
+  rewindsVideo(5);
 }
 
 var onDocumentClick = function () {
-  if (audio.paused) {
-    var sec = video.currentTime;
-    console.log(video.currentTime);
-    rewindsMedia(sec);
+  if (video.muted) {
+    video.muted = false;
   }
 };
 
