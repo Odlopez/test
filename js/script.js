@@ -15,6 +15,7 @@ var pageTwoText = document.querySelector('.page-two__text');
 var logo = document.querySelector('.header__link');
 var pageButton = document.querySelector('.page-two__button');
 var shadow = document.querySelector('.shadow');
+var mainMenu = document.querySelector('.main-menu__list');
 
 var rewindsVideo = function (sec) {
   video.currentTime = sec;
@@ -23,10 +24,9 @@ var rewindsVideo = function (sec) {
 var onLogoClick = function () {
   if (video.paused) {
     video.play();
-    rewindsVideo(5);
   }
 
-  logo.removeEventListener('click', onLogoClick);
+  rewindsVideo(5);
 }
 
 var onPageButtonClick = function () {
@@ -42,6 +42,11 @@ var onPageButtonClick = function () {
   pageTwoText.classList.remove('js-page-text-rotate');
   pageTwoButtonInner.classList.remove('js-page-button-rotate');
   shadow.classList.remove('js-shadow-closed');
+
+  for (var i = 0; i < mainMenu.children.length; i++) {
+    mainMenu.children[i].classList.remove('js-menu-item');
+    mainMenu.children[i].classList.add('main-menu__item');
+  }
 
   setTimeout( function () {
     mainTitle.style.display = 'block';
@@ -63,17 +68,16 @@ var onButtonClick = function () {
   pageTwoButtonInner.classList.add('js-page-button-rotate');
   shadow.classList.add('js-shadow-closed');
 
+  for (var i = 0; i < mainMenu.children.length; i++) {
+    mainMenu.children[i].classList.add('js-menu-item');
+    mainMenu.children[i].classList.remove('main-menu__item');
+  }
+
   setTimeout( function () {
     mainTitle.style.display = 'none';
     button.style.display = 'none';
   }, 510);
 }
-
-var onVideoPlay = function () {
-  rewindsVideo(5);
-
-  video.removeEventListener('play', onVideoPlay);
-};
 
 var onThirdCircleAnimationstart = function () {
   rewindsVideo(28);
@@ -84,5 +88,4 @@ var onThirdCircleAnimationstart = function () {
 pageButton.addEventListener('click', onPageButtonClick);
 thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
 button.addEventListener('click', onButtonClick);
-video.addEventListener('play', onVideoPlay);
 logo.addEventListener('click', onLogoClick);

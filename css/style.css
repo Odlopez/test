@@ -406,6 +406,22 @@ html {
   -webkit-animation: title-closed 0.5s both ease-out;
           animation: title-closed 0.5s both ease-out;
 }
+.js-menu-item {
+  opacity: 1;
+}
+.js-menu-item:first-child {
+  margin-right: 63px;
+
+}
+.js-menu-item:nth-child(2) {
+  margin-right: 54px;
+}
+.js-menu-item:nth-child(3) {
+  margin-right: 54px;
+}
+.js-menu-item:last-child {
+  margin-right: 0;
+}
 .js-button-closed {
   -webkit-transform: scale(1);
           transform: scale(1);
