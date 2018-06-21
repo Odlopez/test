@@ -2,6 +2,7 @@
 
 var container = document.querySelector('.container');
 var video = document.querySelector('.video');
+var audio = document.querySelector('.audio');
 var button = document.querySelector('.main__button');
 var mainTitle = document.querySelector('.main__title');
 var svg = document.querySelector('.main__svg');
@@ -12,19 +13,12 @@ var slider = document.querySelector('.main__slider');
 var pageTwoTitle = document.querySelector('.page-two__title');
 var pageTwoButtonInner = document.querySelector('.page-two__button-inner');
 var pageTwoText = document.querySelector('.page-two__text');
-var logo = document.querySelector('.header__link');
 var pageButton = document.querySelector('.page-two__button');
 var shadow = document.querySelector('.shadow');
 
-var rewindsVideo = function (sec) {
+var rewindsMedia = function (sec) {
   video.currentTime = sec;
-}
-
-var onLogoClick = function () {
-  if (video.paused) {
-    video.play();
-    rewindsVideo(5);
-  }
+  audio.currentTime= sec;
 }
 
 var onPageButtonClick = function () {
@@ -68,22 +62,23 @@ var onButtonClick = function () {
 }
 
 var onThirdCircleAnimationstart = function () {
-  rewindsVideo(28);
+  rewindsMedia(28);
 };
 
-var onShadowAnimationstart = function () {
-  rewindsVideo(5);
+var onDocumentLoaded = function () {
+  rewindsMedia(5);
 }
 
-var onDocumentLoaded = function () {
-  if (video.paused) {
-    video.play();
+var onDocumentClick = function () {
+  if (audio.paused) {
+    var sec = video.currentTime;
+    console.log(video.currentTime);
+    rewindsMedia(sec);
   }
-}
+};
 
 pageButton.addEventListener('click', onPageButtonClick);
 thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
-shadow.addEventListener('animationstart', onShadowAnimationstart);
 button.addEventListener('click', onButtonClick);
-logo.addEventListener('click', onLogoClick);
 document.addEventListener('DOMContentLoaded', onDocumentLoaded);
+document.addEventListener('click', onDocumentClick);
