@@ -15,7 +15,6 @@ var pageTwoText = document.querySelector('.page-two__text');
 var logo = document.querySelector('.header__link');
 var pageButton = document.querySelector('.page-two__button');
 var shadow = document.querySelector('.shadow');
-var mainMenu = document.querySelector('.main-menu__list');
 
 var rewindsVideo = function (sec) {
   video.currentTime = sec;
@@ -24,9 +23,8 @@ var rewindsVideo = function (sec) {
 var onLogoClick = function () {
   if (video.paused) {
     video.play();
+    rewindsVideo(5);
   }
-
-  rewindsVideo(5);
 }
 
 var onPageButtonClick = function () {
@@ -42,11 +40,6 @@ var onPageButtonClick = function () {
   pageTwoText.classList.remove('js-page-text-rotate');
   pageTwoButtonInner.classList.remove('js-page-button-rotate');
   shadow.classList.remove('js-shadow-closed');
-
-  for (var i = 0; i < mainMenu.children.length; i++) {
-    mainMenu.children[i].classList.remove('js-menu-item');
-    mainMenu.children[i].classList.add('main-menu__item');
-  }
 
   setTimeout( function () {
     mainTitle.style.display = 'block';
@@ -68,11 +61,6 @@ var onButtonClick = function () {
   pageTwoButtonInner.classList.add('js-page-button-rotate');
   shadow.classList.add('js-shadow-closed');
 
-  for (var i = 0; i < mainMenu.children.length; i++) {
-    mainMenu.children[i].classList.add('js-menu-item');
-    mainMenu.children[i].classList.remove('main-menu__item');
-  }
-
   setTimeout( function () {
     mainTitle.style.display = 'none';
     button.style.display = 'none';
@@ -81,11 +69,21 @@ var onButtonClick = function () {
 
 var onThirdCircleAnimationstart = function () {
   rewindsVideo(28);
-
-  thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
 };
+
+var onShadowAnimationstart = function () {
+  rewindsVideo(5);
+}
+
+var onDocumentLoaded = function () {
+  if (video.paused) {
+    video.play();
+  }
+}
 
 pageButton.addEventListener('click', onPageButtonClick);
 thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
+shadow.addEventListener('animationstart', onShadowAnimationstart);
 button.addEventListener('click', onButtonClick);
 logo.addEventListener('click', onLogoClick);
+document.addEventListener('DOMContentLoaded', onDocumentLoaded);
