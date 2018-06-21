@@ -71,10 +71,6 @@ var onButtonClick = function () {
   }, 510);
 }
 
-var onThirdCircleAnimationstart = function () {
-  rewindsVideo(28);
-};
-
 var onDocumentLoaded = function () {
   rewindsVideo(5);
 }
@@ -86,7 +82,6 @@ var onDocumentClick = function () {
 };
 
 pageButton.addEventListener('click', onPageButtonClick);
-thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
 button.addEventListener('click', onButtonClick);
 document.addEventListener('DOMContentLoaded', onDocumentLoaded);
 document.addEventListener('click', onDocumentClick);
