@@ -12,19 +12,11 @@ var slider = document.querySelector('.main__slider');
 var pageTwoTitle = document.querySelector('.page-two__title');
 var pageTwoButtonInner = document.querySelector('.page-two__button-inner');
 var pageTwoText = document.querySelector('.page-two__text');
-var logo = document.querySelector('.header__link');
 var pageButton = document.querySelector('.page-two__button');
 var shadow = document.querySelector('.shadow');
 
 var rewindsVideo = function (sec) {
   video.currentTime = sec;
-}
-
-var onLogoClick = function () {
-  if (video.paused) {
-    video.play();
-    rewindsVideo(5);
-  }
 }
 
 var onPageButtonClick = function () {
@@ -71,20 +63,18 @@ var onThirdCircleAnimationstart = function () {
   rewindsVideo(28);
 };
 
-var onShadowAnimationstart = function () {
+var onDocumentLoaded = function () {
   rewindsVideo(5);
 }
 
-var onDocumentLoaded = function () {
-  if (video.paused) {
-    video.play();
+var onDocumentClick = function () {
+  if (video.muted) {
+    video.muted = false;
   }
-}
+};
 
 pageButton.addEventListener('click', onPageButtonClick);
 thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
-shadow.addEventListener('animationstart', onShadowAnimationstart);
 button.addEventListener('click', onButtonClick);
-video.addEventListener('play', onVideoPlay);
-logo.addEventListener('click', onLogoClick);
 document.addEventListener('DOMContentLoaded', onDocumentLoaded);
+document.addEventListener('click', onDocumentClick);
