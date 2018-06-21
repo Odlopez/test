@@ -14,6 +14,7 @@ var pageTwoButtonInner = document.querySelector('.page-two__button-inner');
 var pageTwoText = document.querySelector('.page-two__text');
 var pageButton = document.querySelector('.page-two__button');
 var shadow = document.querySelector('.shadow');
+var mainMenu = document.querySelector('.main-menu__list');
 
 var rewindsVideo = function (sec) {
   video.currentTime = sec;
@@ -32,6 +33,12 @@ var onPageButtonClick = function () {
   pageTwoText.classList.remove('js-page-text-rotate');
   pageTwoButtonInner.classList.remove('js-page-button-rotate');
   shadow.classList.remove('js-shadow-closed');
+
+
+  for (var i = 0; i < mainMenu.children.length; i++) {
+    mainMenu.children[i].classList.remove('js-menu-item');
+    mainMenu.children[i].classList.add('main-menu__item');
+  }
 
   setTimeout( function () {
     mainTitle.style.display = 'block';
@@ -52,6 +59,11 @@ var onButtonClick = function () {
   pageTwoText.classList.add('js-page-text-rotate');
   pageTwoButtonInner.classList.add('js-page-button-rotate');
   shadow.classList.add('js-shadow-closed');
+
+  for (var i = 0; i < mainMenu.children.length; i++) {
+    mainMenu.children[i].classList.add('js-menu-item');
+    mainMenu.children[i].classList.remove('main-menu__item');
+  }
 
   setTimeout( function () {
     mainTitle.style.display = 'none';
