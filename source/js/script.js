@@ -25,8 +25,6 @@ var onLogoClick = function () {
     video.play();
     rewindsVideo(5);
   }
-
-  logo.removeEventListener('click', onLogoClick);
 }
 
 var onPageButtonClick = function () {
@@ -69,28 +67,23 @@ var onButtonClick = function () {
   }, 510);
 }
 
-var onVideoPlay = function () {
-  rewindsVideo(5);
-
-  video.removeEventListener('play', onVideoPlay);
-};
-
 var onThirdCircleAnimationstart = function () {
   rewindsVideo(28);
-
-  thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
 };
+
+var onShadowAnimationstart = function () {
+  rewindsVideo(5);
+}
 
 var onDocumentLoaded = function () {
   if (video.paused) {
     video.play();
   }
-
-  document.removeEventListener('DOMContentLoaded', onDocumentLoaded);
 }
 
 pageButton.addEventListener('click', onPageButtonClick);
 thirdCircle.addEventListener('animationstart', onThirdCircleAnimationstart);
+shadow.addEventListener('animationstart', onShadowAnimationstart);
 button.addEventListener('click', onButtonClick);
 video.addEventListener('play', onVideoPlay);
 logo.addEventListener('click', onLogoClick);
